@@ -1,0 +1,86 @@
+{
+    "input": {
+        "individual": {
+            "train": {
+                "path": "input/individual/144char_1976-1995_train.npz",
+                "net_return": true
+            },
+            "validation": {
+                "path": "input/individual/144char_1996-2000_validation.npz",
+                "net_return": true
+            },
+            "test": {
+                "path": "input/individual/144char_2001-2020_test.npz",
+                "net_return": true
+            }
+        },
+        "macroeconomic": {
+            "train": {
+                "path": "input/macroeconomic/285mc_1976-1995_train.npz",
+                "macro_idx": "all",
+                "normalize": true
+            },
+            "validation": {
+                "path": "input/macroeconomic/285mc_1996-2000_validation.npz",
+                "macro_idx": "all",
+                "normalize": true
+            },
+            "test": {
+                "path": "input/macroeconomic/285mc_2001-2020_test.npz",
+                "macro_idx": "all",
+                "normalize": true
+            }
+        }
+    },
+    "output_path": "output/",
+    "model": {
+        "type": "FeedForward",
+        "solver": "ADAM",
+        "learning_rate": 0.002,
+        "hidden_sizes": [
+            64,
+            64
+        ],
+        "latent_dim": 8,
+        "output_size": 1,
+        "dropout": 0.7,
+        "batch_size": 64
+    },
+    "train": {
+        "epochs": {
+            "conditional": 1024,
+            "unconditional": 256,
+            "sub_epochs": 4
+        }
+        
+    },
+    "learning_rate": 0.002,
+    "num_layers_moment": 0,
+    "num_units_rnn": [4],
+    "macroeconomic_file_test": "input/macroeconomic/285mc_2001-2020_test.npz",
+    "optimizer": "Adam",
+    "macroeconomic_file": "input/macroeconomic/285mc_1976-1995_train.npz", 
+    "use_rnn": true, 
+    "weighted_loss": true, 
+    "hidden_dim": [64, 64], 
+    "cell_type_rnn_moment": "lstm", 
+    "cell_type_rnn": "lstm", 
+    "macroeconomic_file_valid": "input/macroeconomic/285mc_1996-2000_valid.npz", 
+    "num_epochs_moment": 64, 
+    "tSize_test": 240, 
+    "tSize": 240, 
+    "individual_feature_dim": 144,
+    "tSize_valid": 60, 
+    "num_condition_moment": 8, 
+    "loss_factor": 1.0, 
+    "num_layers_rnn_moment": 1, 
+    "individual_file_valid": "input/individual/144char_1996-2000_valid.npz", 
+    "num_epochs": 1024, 
+    "individual_file": "input/individual/144char_1976-1995_train.npz", 
+    "num_units_rnn_moment": [32],       
+    "macro_feature_dim": 285, 
+    "num_layers_rnn": 1, 
+    "individual_file_test": "input/individual/144char_2001-2020_test.npz", 
+    "hidden_dim_moment": [], 
+    "num_layers": 2
+}
