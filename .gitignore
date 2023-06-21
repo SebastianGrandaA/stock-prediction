@@ -2,7 +2,7 @@ Manifest.toml
 .vscode
 
 input/data/*
-resources/*
 output/*
+resources/*
 TODO.py
 .html
